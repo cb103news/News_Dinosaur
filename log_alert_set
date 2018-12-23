@@ -1,0 +1,78 @@
+
+
+# log index 
+
+curl -XPOST -D- "http://localhost:5601/api/saved_objects/index-pattern" \
+-H "Content-Type: application/json" \
+-H "kbn-version: 6.4.3" \
+-d '{ "attributes": { "title" : "logstash-*", "timeFieldName" : "@timestamp"} }'
+
+
+# _xpack/watcher/watch/error_report
+
+{
+  "trigger": {
+    "schedule": {
+      "interval": "10m"
+    }
+  },
+  "input": {
+    "search": {
+      "request": {
+        "search_type": "query_then_fetch",
+        "indices": [
+          "*"
+        ],
+        "types": [],
+        "body": {
+          "size": 0,
+          "query": {
+            "bool": {
+              "must": [
+                {
+                  "match": {
+                    "message": "ERROR"
+                  }
+                },
+                {
+                  "range": {
+                    "@timestamp": {
+                      "gt": "now-10m"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "condition": {
+    "compare": {
+      "ctx.payload.hits.total": {
+        "gte": 1
+      }
+    }
+  },
+  "actions": {
+    "my-logging-action": {
+      "logging": {
+        "level": "error",
+        "text": "There are {{ctx.payload.aggregations.distinct_userId.value}} documents in your index. clow error "
+      }
+    },
+    "send_email": {
+      "email": {
+        "profile": "standard",
+        "to": [
+          "juce810282@gmail.com"
+        ],
+        "subject": "log error test",
+        "body": {
+          "text": "There are {{ctx.payload.aggregations.distinct_userId.value}} documents in your index. clow error "
+        }
+      }
+    }
+  }
+}

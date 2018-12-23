@@ -1,0 +1,22 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flask-WTForm測試</title>
+    <style type="text/css">
+        .textField {
+            font-size: 16px;
+            font-family: 微軟正黑體, monospace;
+            color: #cc6e96;
+            background-color: #fcf8db
+        }
+    </style>
+</head>
+<body>
+    <h1>WTForm展示</h1>
+    <form method="POST">
+        {{ runForm.csrf_token }}
+        {{ runForm.name.label }} {{ runForm.name(class="textField") }}
+        {{ runForm.submit }}
+    </form>
+</body>
+</html>

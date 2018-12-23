@@ -1,0 +1,177 @@
+version: '2'
+
+services:
+
+  redis:
+    image: redis:4.0.11
+    container_name: my_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+    networks:
+      - elk
+
+  jupyter-tutorial:
+    build:
+     context: ./dockerfile
+     dockerfile: dockerfile-jupyter
+    container_name: elk_jupyter
+    depends_on:
+      - redis
+    ports:
+      - "8888:8888"
+    command: start-notebook.sh --NotebookApp.token=''
+    volumes:
+      - ./code:/home/jovyan/work
+      - /etc/localtime:/etc/localtime
+    networks:
+      - elk
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+    container_name: elasticsearch
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    networks:
+      - elk
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:6.4.3
+    container_name: logstash
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5000:5000"
+      - "12201:12201/udp"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch    
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.3
+    container_name: kibana
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config:ro
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:5.0.0
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - elk
+  kafka:
+    image: confluentinc/cp-kafka:5.0.0
+    hostname: kafka
+    container_name: kafka1
+    ports:
+      - '9092:9092'
+      - '29092:29092'
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+    # Following line is needed for Kafka versions 0.11+
+    # in case you run less than 3 Kafka brokers in your
+    # cluster because the broker config
+    # offsets.topic.replication.factor` (default: 3)
+    # is now enforced upon topic creation
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1     
+    networks:
+      - elk
+
+  db:
+    image: mysql:5.7
+    container_name: chatbot_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=iii
+    volumes:
+      - ./mysql_db/mysql_data:/var/lib/mysql
+      - ./mysql_db/mysql_init:/docker-entrypoint-initdb.d/
+    networks:
+      - elk
+
+  api:
+    build:
+      context: ./mysql_db/dockerfile
+      dockerfile: dockerfile-api
+    container_name: chatbot_api
+    user: root
+    environment:
+      - GRANT_SUDO=yes
+    ports:
+      - "8880:8888"
+      - "5001:5000"
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ./mysql_db/code:/home/jovyan/work/
+    command: start-notebook.sh --NotebookApp.token=''
+    networks:
+      - elk
+        
+        
+  jupyter-tutorial_2:
+    build:
+      context: ./line_bot/dockerfile
+      dockerfile: dockerfile-jupyter
+    container_name: chatbot_line
+    depends_on:
+      - api
+    ports:
+      - "8889:8888"
+      - "80:5000"
+    command: start-notebook.sh --NotebookApp.token=''
+    volumes:
+      - ./line_bot/code:/home/jovyan/work
+    networks:
+      - elk
+
+
+  ngrok-external-dns:
+    build:
+      context: ./line_bot/dockerfile
+      dockerfile: dockerfile-ngrok
+    container_name: chatbot_ngrok
+    depends_on:
+      - jupyter-tutorial
+    ports:
+      - "4040:4040"
+    command: ngrok http chatbot_line:5000
+    networks:
+      - elk
+
+
+
+networks:
+  elk:
+    driver: bridge
