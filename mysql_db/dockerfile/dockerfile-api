@@ -1,0 +1,7 @@
+#jupyter/base-notebook  with flask
+FROM jupyter/base-notebook
+
+#update pip
+RUN pip install --upgrade pip
+#install flask
+RUN pip install flask==0.12 requests pymysql
