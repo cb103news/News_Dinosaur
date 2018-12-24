@@ -2,4 +2,6 @@
 FROM jupyter/base-notebook
 #安裝flask 0.12, request, line-bot-sdk
 RUN pip install --upgrade pip
-RUN pip install Flask==0.12 requests line-bot-sdk redis python-logstash
+RUN pip install Flask==0.12 line-bot-sdk
+RUN pip install bs4 requests redis python-logstash kafka schedule
+RUN pip install udicOpenData Swinger pandas networkx textrank4zh elasticsearch

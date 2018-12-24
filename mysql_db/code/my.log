@@ -10,3 +10,13 @@
 12-24 19:30 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 19:30:53] "POST /news HTTP/1.1" 200 -
 12-24 19:30 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 19:30:56] "POST /news HTTP/1.1" 200 -
 12-24 19:31 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 19:31:01] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:38] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:41] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:43] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:47] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:50] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:53] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:58] "POST /news HTTP/1.1" 200 -
+12-24 20:11 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:11:59] "POST /news HTTP/1.1" 200 -
+12-24 20:12 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:12:05] "POST /news HTTP/1.1" 200 -
+12-24 20:12 werkzeug     INFO     172.18.0.6 - - [24/Dec/2018 20:12:10] "POST /news HTTP/1.1" 200 -
