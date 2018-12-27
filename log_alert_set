@@ -76,3 +76,6 @@ curl -XPOST -D- "http://localhost:5601/api/saved_objects/index-pattern" \
     }
   }
 }
+
+# ngrok
+curl $(docker port chatbot_ngrok 4040)/api/tunnels
