@@ -1,10 +1,23 @@
-12-25 12:55 werkzeug     INFO      * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:38] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:40] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:41] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:44] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:45] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:47] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:49] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:50] "POST /news HTTP/1.1" 200 -
-12-25 12:56 werkzeug     INFO     172.20.0.9 - - [25/Dec/2018 12:56:50] "POST /news HTTP/1.1" 200 -
+12-28 11:59 werkzeug     INFO      * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:16] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:20] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:22] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:25] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:26] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:36] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:38] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:40] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:44] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:46] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:50] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:53] "POST /news HTTP/1.1" 200 -
+12-28 12:00 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:00:58] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:00] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:28] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:32] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:33] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:35] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:37] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:42] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:45] "POST /news HTTP/1.1" 200 -
+12-28 12:01 werkzeug     INFO     172.20.0.7 - - [28/Dec/2018 12:01:49] "POST /news HTTP/1.1" 200 -
