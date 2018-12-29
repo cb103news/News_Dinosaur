@@ -20,7 +20,7 @@ services:
     depends_on:
       - redis
     ports:
-      - "8888:8888"
+      - "8887:8888"
     command: start-notebook.sh --NotebookApp.token=''
     volumes:
       - ./code:/home/jovyan/work
@@ -135,6 +135,7 @@ services:
       - db
     volumes:
       - ./mysql_db/code:/home/jovyan/work/
+      - /etc/localtime:/etc/localtime
     command: start-notebook.sh --NotebookApp.token=''
     networks:
       - elk
@@ -153,6 +154,7 @@ services:
     command: start-notebook.sh --NotebookApp.token=''
     volumes:
       - ./line_bot/code:/home/jovyan/work
+      - /etc/localtime:/etc/localtime
     networks:
       - elk
 
@@ -169,8 +171,6 @@ services:
     command: ngrok http chatbot_line:5000
     networks:
       - elk
-
-
 
 networks:
   elk:
