@@ -119,9 +119,7 @@ services:
       - elk
 
   api:
-    build:
-      context: ./mysql_db/dockerfile
-      dockerfile: dockerfile-api
+    image: liangrong3020/my_elk_api
     container_name: chatbot_api
     user: root
     environment:
@@ -171,6 +169,20 @@ services:
     command: ngrok http chatbot_line:5000
     networks:
       - elk
+
+  neo4j:
+    image: neo4j
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./neo4j/data:/data
+      - ./n4j_conf:/var/lib/neo4j/conf
+      - ./neo4j/import:/var/lib/neo4j/import
+      - ./n4j_plugins:/var/lib/neo4j/plugins
+    networks:
+      - elk  
 
 networks:
   elk:
