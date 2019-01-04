@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>關鍵字P2</title>
+  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+  <script type="text/javascript">
+  </script>
+  <style type="text/css">
+  input{
+    padding:5px 5px; border:2px black solid;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
+    body{
+	  background:#DDDDDD;
+    }
+
+    .box{
+      margin: 50px auto;
+      width: 200px;
+      height: 50px;
+    }
+    h1,span{
+      font-family: 'Gamja Flower', cursive;
+    }
+    #A h1{
+      vertical-align: center;
+    }
+
+    span{
+      font-size: 30px;
+
+    }
+    #A li{
+      display:inline;
+      vertical-align: center;
+    }
+    div{
+      vertical-align: center;
+      overflow:auto;
+    }
+    span .t1{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <h1 style="text-align: center;" class="t1">Keyword:</h1>
+      <span>
+			<form action="/KeyWord2/" method="GET" name="form2" style="text-align: center;">
+				{% csrf_token %}
+				<div>查詢關鍵字：<input type="text" name="username" style="text-align: center;" />
+				<input type="submit" value="送出資料" /></div>
+			</form>
+      </span>
+    
+  <div id="A">
+  <br>
+  <br>
+  <br>
+    <h1 class="t1"style="text-align: center;">RelativeNews:</h1>
+    <p style="text-align: center;"><h1 style="display: inline;">你查詢的關鍵字是:</h1></p>
+<br>
+    <p style="text-align: center;"><h1 style="display: inline;">{{username}}</h1></p>
+	<ul class="kw">
+  </div>
+  <hr />
+  <div aligin="left" style="width:275px;height:500px">
+	<ul class="kw">
+            {% if news %}
+			    <ul>
+                    {% for new in news %}
+                    <li>標題: <br><a href ='/newspaper/{{new.title_id}}'>{{ new.title }}</a><br>摘要:<small>{{ new.abstract }}</small><br></li>
+				    <br>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h1 style="display: inline;">查無資料!!</h1></p>
+            {% endif %}
+    </ul>
+  </div>
+
+  <hr />
+  <div id="B">
+    <h1 class="t1"style="text-align: center;">RelativeKeywords:</h1>
+    <ul >
+        {% for keyword in keywords %}
+		    <li><strong>{{ keyword.keyword }}</strong></li>
+            <br>
+        {% endfor %}
+    </ul>
+
+
+  </div>
+<form action="/keywordsearch/" method="GET" name="form2" style="text-align: center;">
+	{% csrf_token %}
+	<input type="submit" value="回到首頁" /></div>
+</form>
+</body>
+</html>
