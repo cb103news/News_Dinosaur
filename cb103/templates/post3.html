@@ -1,0 +1,12 @@
+  <form action="." method="POST">
+      <p>建議修改:</p>
+      <select name="tag choice">
+	      {% for color in colors %}
+              <option value ="options">{{color.analysis}}</option>
+          {% endfor %}
+      </select>
+	     <br>
+        <textarea name="memo" rows="10" cols="50" wrap="off">
+        </textarea><br>
+      <input type="submit" name="" value="確認送出">
+  </form>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>懶人包</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    <style type="text/css">
+    body{
+	  background:#DDDDDD;
+    }
+
+      .box{
+        margin: 50px auto;
+        width: 200px;
+        height: 50px;
+      }
+      h1,p,h3,h3,span{
+        font-family: 'Noto Sans TC', sans-serif;
+      }
+      #A h1{
+        vertical-align: center;
+      }
+      #A li{
+        display:inline;
+        vertical-align: center;
+      }
+      div{
+        vertical-align: center;
+
+      }
+      span .t1{
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 style="text-align: center;"><strong>{{name}}</strong></h1>
+
+    <p>&nbsp;</p>
+  <p><h1 style="display: inline;">事件：</h1><br><hr />{{content}}</p>
+<hr />
+    </p>
+
+<h2>輿情熱度表
+<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+      <br>
+        <img src={{heat}} alt="" width="275" height="300">
+
+      </h2>
+    </div>
+  <p><h1 style="display: inline;"></h1>{{hp}}</p>
+    <p>&nbsp;</p>
+<h2>新聞與輿論溫度表
+<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+      <br>
+        <img src={{emotion}} alt="" width="275" height="300">
+      </h2>
+    </div>
+  <p><h1 style="display: inline;"></h1>{{em}}</p>
+    <p>&nbsp;</p>
+
+<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+<div>
+  <h3 style="display: inline;">關鍵字</h3>
+    {% for keywords in kewordss %}
+    <li><strong><a href ='/KeyWord3/{{keywords.keyword}}'>{{ keywords.keyword }}</a></strong></li>
+    {% endfor %}
+</div>
+<div>
+  <h3 style="display: inline;">相關新聞列表</h3>
+    {% for new in news %}
+    <li><strong><a href ='/newspaper/{{new.title_id}}'>{{ new.title }}</a></strong>
+    {% endfor %}
+
+</div>
+    </div>
+    <p>&nbsp;</p>
+<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+      <form action="." name="post1" method="POST">
+      {% csrf_token %}
+        <h3>評分:</h3>
+
+        <input type="radio" id="e_score1" name="ne_score" value="1">1
+        <input type="radio" id="e_score2"name="ne_score" value="2">2
+        <input type="radio" id="e_score3"name="ne_score" value="3">3
+        <input type="radio" id="e_score4"name="ne_score" value="4">4
+        <input type="radio" id="e_score5"name="ne_score"value="5">5
+      	<input type="submit" name="button1" value="確認送出">
+      </form>
+    
+      <form action="." name="post2" method="POST">
+      {% csrf_token %}
+        <p>留言板:</p>
+        <textarea name="tldr_comment" rows="10" cols="40" wrap="off">
+        </textarea><br>
+        <input type="submit" name="button2" value="確認送出">
+      </form>
+    </div>
+    <h3 style="display: inline;">目前文章總分:</h3><span><u>{{ avg }}</u></span><span></span>
+<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+  {% for comment in comments %}
+    <p><img src={{comment.user.picture_url}} alt="" width="20" height="20">{{comment.user.display_name}}:{{ comment.user_tldr_comment }}</p>
+  {% endfor %}
+
+</div>
+    </html>
