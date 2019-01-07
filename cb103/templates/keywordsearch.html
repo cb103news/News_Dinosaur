@@ -8,8 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
   <style type="text/css">
+  .NoNewline
+  {
+  word-break: keep-a;;:/*必須*/
+  }
   input{
-    padding:5px 5px; border:2px black solid;
+    border:2px black solid;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
@@ -17,11 +21,6 @@
 	  background:#DDDDDD;
     }
 
-    .box{
-      margin: 50px auto;
-      width: 200px;
-      height: 50px;
-    }
     h1,span{
       font-family: 'Gamja Flower', cursive;
     }
@@ -32,56 +31,50 @@
     #A li{
       display:inline;
       vertical-align: center;
-      font-family: 'Noto Sans TC', sans-serif;
+      font-family: 'Gamja Flower', sans-serif;
     }
     div{
       margin: 0px 0;
       border: 0px;
       padding: 0 0 0 0;
+      float:center
     }
     span .t1{
       width: 150px;
     }
   </style>
 </head>
-
 <body>
   <div>
     <center>
-      <div>
-        <pre>說明:您可以透過輸入[關鍵字]，<br>或點選最具代表性的熱們搜尋關鍵字</pre>
-      </div>
+          <span class="icon"><div style="font-size:200px">&nbsp;&nbsp;keywords</div><i class="Gamja Flower"></i></span>
       <div class="box">
         <div class="container-1">
-          <span class="icon"><i class="fa fa-search"></i></span>
-          <h1 class="t1">  Keywords</h1>
+          <span class="icon"><i class="Gamja Flower"></i></span>
           <span>
-			<form action="/KeyWord2/" method="GET" name="form1" style="text-align: center;" >
+			<form action="/KeyWord2/" method="GET" name="form1" >
 				{% csrf_token %}
-				<div>查詢關鍵字：<input type="text" name="username" style="text-align: left;" />
-				<input type="submit" value="送出資料" /></div>
+                                <input type="text" name="username" style="width:800px;height:150px;font-size:150px;" placeholder="輸入關鍵字" />
+                                <br><br>
+				<input type="submit" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
 			</form>
           </span>
         </div>
-      </div>       
+      </div>
+       <span class="icon"><div style="font-size:150px">hotkeywords</div><i class="Gamja Flower"></i></span>
     </center>
   </div>
   
 
-  <br>
-  <br>
-  <br>
-  <p>
-    <div id="A">
-      <h1 clas="t1"style="text-align: center;">HotKeyword:</h1>
-      <ul class="kw">
-        <li><a href="{{kwurl}}" class="kw">阿姆斯特朗{{keyword}}</a></li><br>
-        <li><a href="{{kwurl}}" class="kw">旋風噴射{{keyword}}</a>    </li><br>
-        <li><a href="{{kwurl}}" class="kw">阿姆斯特朗砲{{keyword}},</a> </li><br>
-        <li><a href="{{kwurl}}" class="kw">飛天德{{keyword}},</a>      </li><br>
-        <li><a href="{{kwurl}}" class="kw">胖子{{keyword}},</a>     </li> <br>
-      </ul>
+
     </div>
-  </p>
+
 </body>
+	<br>
+        <li style="font-size:50px"><a href="/KeyWord3/{{k1}}">{{k1}}</a></li><br>
+        <li style="font-size:50px"><a href="/KeyWord3/{{k2}}">{{k2}}</a></li><br>
+        <li style="font-size:50px"><a href="/KeyWord3/{{k3}}">{{k3}}</a></li><br>
+        <li style="font-size:50px"><a href="/KeyWord3/{{k4}}">{{k4}}</a></li><br>
+        <li style="font-size:50px"><a href="/KeyWord3/{{k5}}">{{k5}}</a></li><br>
+
 </html>

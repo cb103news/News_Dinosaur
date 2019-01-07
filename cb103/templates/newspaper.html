@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>單篇新聞呈現</title>
+    <title>新聞</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
     <style type="text/css">
     body{
@@ -26,7 +26,8 @@
       }
       div{
         vertical-align: center;
-	
+        float:left;
+        word-wrap:break-word;
       }
       span .t1{
         width: 150px;
@@ -44,11 +45,11 @@
 			<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 			<style type="text/css">
 			  .container {
-				width: 50px;
-				height: 20px;
+				width: 400px;
+				height: 100px;
 				margin-right:10px;
 				float:left;
-				border:2px blue solid;
+				border:8px blue solid;
 				text-align: center;
 			  }
 			  .square {
@@ -60,13 +61,12 @@
 		  </head>
 		  <body>
 			<div class="container">
-			  <div class="square">
+			  <div class="square" style="font-size:70px">
 				藍色  
 			  </div>
 			</div>
 		  </body>
 		</html>
-		<br>
     {% endifequal %}
 	{% ifequal labelc 'green' %}
 		<!DOCTYPE html>
@@ -78,113 +78,108 @@
 			<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 			<style type="text/css">
 			.container2 {
-				width: 50px;
-				height: 20px;
+				width: 400px;
+				height: 100px;
 				float:left;
-				border:2px green solid;
+				border:8px green solid;
 				text-align: center;
 			  }
 			.square2 {
 				width: 100%;
-				padding-bottom: 2%;
+				padding-bottom: 1%;
 				background: #82FF82;
 			  }
 		</style>
 		</head>
 		<body>
 			<div class="container2">
-				<div class="square2">
+				<div class="square2" style="font-size:70px">
 					綠色  
 				</div>
 			</div>
 		</body>
 		</html>
-		<br>
 	{% endifequal %}
+<br><br>
+<p><h2 style="font-size:100px;width:1500px;">{{one.title}}</h2></p>
+<hr size ='10' width="1500px">
+  <p><h2 style="display: inline;font-size:75px;width:1750px;">來源：{{origin.origin}}</h2></p>
 
-    <p style="text-align: left;"><h1 style="display: inline;">新聞標題:{{ one.title }}</h1><h1 style="display: inline;"><br>
-<hr />
-  <p><h2 style="display: inline;">來源:</h2>{{origin.origin}}</p>
-
-  <p><h2 style="display: inline;">發布時間:</h2>{{time}}</p>
-<p><h2 style="display: inline;">記者:</h2></p>
+  <p><h2 style="font-size:75px;width:1580px;">發布時間：{{time}}</h2></p>
+<p><h2 style="display: inline;font-size:75px;width:1580px;">記者：
   {% for a in author %}
-    <p>{{ a.author }}</p>
+    <h2 style="display: inline;font-size:75px;width:1580px;">{{ a.author }}</h2>
 	<br>
   {% endfor %}
-
+  </h2>
       <h3>
-        <img src={{pic}} alt="" width="290" height="300">
+        <img src={{pic}} alt="" width="1580" height="1100">
 
       </h3>
 <hr />
-<p><h2>文章內容:</h2>
-<div style="width:280px;">{{one.content}}</div></p>
+<p><h2 style="font-size:100px;width:1400px;">文章內容:</h2>
+<div aligin="center" style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;font-size:100px;">{{one.content}}</div></p>
 
 <hr />
-<p><div>
-  <h2 style="display: inline;">關鍵字</h2>
+<div style="display: inline;font-size:100px;width:1500px;word-wrap:break-all;">
+  <h2 style="display: inline;font-size:100px;width:1600px;">關鍵字</h2><br>
     {% for keywords in kewordss %}
-    <li><strong><a href ='/KeyWord3/{{keywords.keyword}}'>{{ keywords.keyword }}</a></strong></li>
+    <a href ='/KeyWord3/{{keywords.keyword}}' style="font-size:100px;width:1550px;">{{ keywords.keyword }}</a>&nbsp;&nbsp;&nbsp;
     {% endfor %}
-
 </div>
-</p>
+
 <div>
 <hr />
-<h3 style="display: inline;">新聞來源</h3>
-<li><strong><a href ='{{url}}'>{{url}}</a></strong></li>
+<h2 style="display: inline;font-size:100px;width:500px;">新聞來源</h2>
+<br>
+<a href ='{{url}}' style="font-size:50px;width:1250px;" >{{url}}</a></strong>
 <hr />
-<h2>讀者評分:</h2>
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
-  <form action="." name="post1" method="POST">
+<div  style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;font-size:100px;">
+  <form action="" name="post1" method="POST" >
   {% csrf_token %}
     <p>新聞評分:</p>
 
-    <input type="radio" id="e_score1" name="e_score" value="1">1
-    <input type="radio" id="e_score2" name="e_score" value="2">2
-    <input type="radio" id="e_score3" name="e_score" value="3">3
-    <input type="radio" id="e_score4" name="e_score" value="4">4
-    <input type="radio" id="e_score5" name="e_score" value="5">5<br>
-	<input type="submit" name="button1" value="確認送出">
+    <input type="radio" id="e_score1" name="e_score" value="1" style="width:100px;height:100px;text-size:80px;">1
+    <input type="radio" id="e_score2" name="e_score" value="2" style="width:100px;height:100px;text-size:80px;">2
+    <input type="radio" id="e_score3" name="e_score" value="3" style="width:100px;height:100px;text-size:80px;">3
+    <input type="radio" id="e_score4" name="e_score" value="4" style="width:100px;height:100px;text-size:80px;">4
+    <input type="radio" id="e_score5" name="e_score" value="5" style="width:100px;height:100px;text-size:80px;">5
+	<input type="submit" name="button1" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
   </form>
-  <br>
-  
-  <form action="." name="post2" method="POST">
+  <form action="" name="post2" method="POST">
   {% csrf_token %}
     <p>留言板:</p>
-    <textarea name="user_comment" rows="10" cols="40" wrap="off">
+    <textarea name="user_comment" rows="5" cols="28" wrap="off" style="font-size:80px">
     </textarea><br>
-    <input type="submit" name="button2" value="確認送出">
+    <input type="submit" name="button2" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
   </form>
   
-  <form action="." name="post3" method="POST">
+  <form action="" name="post3" method="POST" >
   {% csrf_token %}
       <p>建議修改:</p>
-      <select name="choice">
-      <option selected="select" disabled>請選擇改進處</option>>
+      <select name="choice" style="width:750px;height:150px;font-size:75px;">
+      <option selected="select" style="width:300px;height:150px;font-size:75px;">請選擇改進處</option>
 	      {% for color in colors %}
               <option name ="option">{{color.analysis}}</option>
           {% endfor %}
       </select>
-	     <br>
-        <textarea name="advice" rows="10" cols="40" wrap="off">
+        <textarea name="advice" rows="5" cols="28" wrap="off" style="font-size:80px">
         </textarea><br>
-      <input type="submit" name="button3" value="確認送出">
+      <input type="submit" name="button3" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
   </form>
-  
 </div>
-<hr>
-<h3 style="display: inline;">目前文章總分:</h3><span><u>{{ avg }}</u></span><span></span>
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+</body>
+<p><h2 style="font-size:80px;width:700px;">目前文章總分:{{ avg }}</h2></p>
+<div style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;font-size:100px;">
   {% for comment in comments %}
-    <p><img src={{comment.user.picture_url}} alt="" width="20" height="20">{{comment.user.display_name}}:{{ comment.user_comment }}</p>
+    <p><img src={{comment.user.picture_url}} alt="" width="180" height="120">{{comment.user.display_name}}:{{ comment.user_comment }}</p>
   {% endfor %}
 
 </div>
-<form action="/keywordsearch/" method="GET" name="form2" style="text-align: center;">
+<form action="/keywordsearch/" method="GET" name="form2">
 	{% csrf_token %}
-	<input type="submit" value="回到首頁" /></div>
+<br>
+<br>
+	<input type="submit" value="回到首頁" style="width:1000px;height:150px;font-size:75px;" /></div>
 </form>
-</body>
 </html>

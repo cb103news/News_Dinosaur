@@ -11,7 +11,6 @@
 
       .box{
         margin: 50px auto;
-        width: 200px;
         height: 50px;
       }
       h1,p,h3,h3,span{
@@ -26,6 +25,7 @@
       }
       div{
         vertical-align: center;
+        overflow:auto;
 
       }
       span .t1{
@@ -35,72 +35,68 @@
   </head>
   <body>
 
-    <h1 style="text-align: center;"><strong>{{name}}</strong></h1>
+    <h2 style="font-size:100px;text-align: center;">{{name}}</h2>
+<hr size="20px">
+    <h2 style="font-size:70px;width:1500px;">{{content}}</h2>
+<hr size="14px">
 
-    <p>&nbsp;</p>
-  <p><h1 style="display: inline;">事件：</h1><br><hr />{{content}}</p>
-<hr />
-    </p>
-
-<h2>輿情熱度表
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+<h2 style="font-size:100px;text-align: center;">輿情熱度表</h2>
+<div style="border-width:18px;border-style:ridge;border-color:#666666;padding:5px;width:1460px;height:1130px">
       <br>
-        <img src={{heat}} alt="" width="275" height="300">
+        <img src={{heat}} alt="" width="1450" height="1120">
 
-      </h2>
+      
     </div>
-  <p><h1 style="display: inline;"></h1>{{hp}}</p>
-    <p>&nbsp;</p>
-<h2>新聞與輿論溫度表
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+<h2 style="font-size:80px;width:1450px;">{{hp}}</h2>
+<h2 style="font-size:100px;text-align: center;">新聞及輿論溫度表</h2>
+<div style="border-width:18px;border-style:ridge;border-color:#666666;padding:5px;width:1460px;height:1130px;">
       <br>
-        <img src={{emotion}} alt="" width="275" height="300">
-      </h2>
+        <img src={{emotion}} alt="" width="1450" height="1120">
+      
     </div>
-  <p><h1 style="display: inline;"></h1>{{em}}</p>
-    <p>&nbsp;</p>
-
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
-<div>
-  <h3 style="display: inline;">關鍵字</h3>
-    {% for keywords in kewordss %}
-    <li><strong><a href ='/KeyWord3/{{keywords.keyword}}'>{{ keywords.keyword }}</a></strong></li>
-    {% endfor %}
+  <h2 style="font-size:80px;width:1450px;">{{em}}</h2>
+<hr size="20px">
+<h2 style="display: inline;font-size:80px;width:1450px;">關鍵字</h2>
+ {% for keywords in kewordss %}
+ <li><strong><a href ='/KeyWord3/{{keywords.keyword}}' style="font-size:80px">{{ keywords.keyword }}</a></strong></li>
+ {% endfor %}
 </div>
-<div>
-  <h3 style="display: inline;">相關新聞列表</h3>
+<br>
+<br>
+  <h2 style="display: inline;font-size:100px;width:1450px;">相關新聞列表</h2>
+<div aligin="center" style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;height:1200px;font-size:px;">
     {% for new in news %}
-    <li><strong><a href ='/newspaper/{{new.title_id}}'>{{ new.title }}</a></strong>
+    <li style="font-size:70px"><strong><a href ='/newspaper/{{new.title_id}}'>{{ new.title }}</a></strong></li>
     {% endfor %}
 
 </div>
     </div>
     <p>&nbsp;</p>
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+<div  style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;font-size:100px;">
       <form action="." name="post1" method="POST">
       {% csrf_token %}
-        <h3>評分:</h3>
+        <h2>評分:</h2>
 
-        <input type="radio" id="e_score1" name="ne_score" value="1">1
-        <input type="radio" id="e_score2"name="ne_score" value="2">2
-        <input type="radio" id="e_score3"name="ne_score" value="3">3
-        <input type="radio" id="e_score4"name="ne_score" value="4">4
-        <input type="radio" id="e_score5"name="ne_score"value="5">5
-      	<input type="submit" name="button1" value="確認送出">
+        <input type="radio" id="e_score1" name="ne_score" value="1" style="width:100px;height:100px;text-size:80px;">1
+        <input type="radio" id="e_score2"name="ne_score" value="2" style="width:100px;height:100px;text-size:80px;">2
+        <input type="radio" id="e_score3"name="ne_score" value="3" style="width:100px;height:100px;text-size:80px;">3
+        <input type="radio" id="e_score4"name="ne_score" value="4" style="width:100px;height:100px;text-size:80px;">4
+        <input type="radio" id="e_score5"name="ne_score"value="5" style="width:100px;height:100px;text-size:80px;">5
+      	<input type="submit" name="button1" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
       </form>
     
       <form action="." name="post2" method="POST">
       {% csrf_token %}
         <p>留言板:</p>
-        <textarea name="tldr_comment" rows="10" cols="40" wrap="off">
+        <textarea name="tldr_comment" rows="5" cols="28" wrap="off" style="font-size:80px">
         </textarea><br>
-        <input type="submit" name="button2" value="確認送出">
+        <input type="submit" name="button2" style="width:600px;height:150px;font-size:75px;" value="送出資料" />
       </form>
     </div>
-    <h3 style="display: inline;">目前文章總分:</h3><span><u>{{ avg }}</u></span><span></span>
-<div style="border-width:3px;border-style:ridge;border-color:#666666;padding:5px;">
+    <p><h2 style="display: inline;font-size:100px;width:1400px;">目前文章總分:{{ avg }}</h2></p>
+<div style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1450px;font-size:100px;">
   {% for comment in comments %}
-    <p><img src={{comment.user.picture_url}} alt="" width="20" height="20">{{comment.user.display_name}}:{{ comment.user_tldr_comment }}</p>
+    <p><img src={{comment.user.picture_url}} alt="" width="80" height="80">{{comment.user.display_name}}:{{ comment.user_tldr_comment }}</p>
   {% endfor %}
 
 </div>

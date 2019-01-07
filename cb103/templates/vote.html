@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>投票總覽</title>
+	<style type="text/css">
+	body{
+		background: #DDDDDD
+
+</style>
+</head>
+<body>
+               {% for title in titles %}
+		<div class="div1">
+			<a href="/votein/{{title.poll_id}}" style="font-size:120px">{{title.poll_title}}</a>
+			<div class="div2">
+				<img src={{title.poll_img}} alt="" width="1450" height="1120">
+			</div>
+		</div><br><br><br>
+		<hr size ='10' color="#000000" width="1500px">
+                
+               {% endfor %}
+
+</body>
+</html>

@@ -115,7 +115,7 @@ class Origin(models.Model):
 class Poll(models.Model):
     poll_id = models.AutoField(primary_key=True)
     poll_title = models.CharField(max_length=60)
-    poll_content = models.TextField()
+    poll_img = models.TextField()
 
     class Meta:
         managed = False
@@ -125,7 +125,9 @@ class Poll(models.Model):
 class PollOption(models.Model):
     poll_option_id = models.AutoField(primary_key=True)
     poll = models.ForeignKey(Poll, models.DO_NOTHING)
-    poll_option_name = models.CharField(max_length=60)
+    option_title = models.CharField(max_length=60)
+    vote_tally = models.IntegerField()
+    option_img = models.TextField()
 
     class Meta:
         managed = False
@@ -236,16 +238,6 @@ class UserNewsReviseAdvice(models.Model):
         managed = False
         db_table = 'User_News_Revise_Advice'
 
-
-class UserPollBehavior(models.Model):
-    poll_behavior_id = models.AutoField(primary_key=True)
-    poll = models.ForeignKey(Poll, models.DO_NOTHING)
-    user = models.ForeignKey('Users', models.DO_NOTHING)
-    poll_option = models.ForeignKey(PollOption, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'User_Poll_Behavior'
 
 
 class Users(models.Model):

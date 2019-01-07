@@ -25,4 +25,6 @@ urlpatterns = [
 	url(r'^newspaper/(\w+)/$', views.post3),
 	url(r'^Newcheck/$', Newcheck),
 	url(r'^KeyWord3/(\w+)/$', views.post4),
+        url(r'^vote/$', views.post6),
+        url(r'^votein/(\w+)/$', views.post7),
 ]
