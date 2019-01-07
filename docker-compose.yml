@@ -165,7 +165,7 @@ services:
     depends_on:
       - jupyter-tutorial
     ports:
-      - "4040:4040"
+      - "4041:4040"
     command: ngrok http chatbot_line:5000
     networks:
       - elk
@@ -178,11 +178,11 @@ services:
       - "7687:7687"
     volumes:
       - ./neo4j/data:/data
-      - ./n4j_conf:/var/lib/neo4j/conf
-      - ./neo4j/import:/var/lib/neo4j/import
+      - ./n4j_conf:/conf
+      - ./code/neo4j_import:/var/lib/neo4j/import
       - ./n4j_plugins:/var/lib/neo4j/plugins
     networks:
-      - elk  
+      - elk 
 
 networks:
   elk:

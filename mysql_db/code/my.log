@@ -1,2 +1,44 @@
+<<<<<<< HEAD
 01-07 10:19 werkzeug     INFO      * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 01-07 10:20 werkzeug     INFO     172.20.0.1 - - [07/Jan/2019 10:20:36] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+=======
+01-06 20:33 werkzeug     INFO      * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+01-06 20:46 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:46:19] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 20:50 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:50:04] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 20:50 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:50:59] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 20:51 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:51:20] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 20:51 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:51:28] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 20:51 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 20:51:37] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:00 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:00:24] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:01 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:01:07] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:01 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:01:08] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:02 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:02:15] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:04 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:04:22] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:04 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:04:43] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:04 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:04:49] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:05 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:05:10] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:05 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:05:33] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:19 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:19:45] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:20 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:20:11] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:20 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:20:15] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:20 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:20:47] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:20 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:20:52] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:20 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:20:59] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:21 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:21:14] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:21 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:21:49] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:21 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:21:58] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:22 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:22:24] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:22 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:22:25] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:22 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:22:33] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:24 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:24:52] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:25 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:25:59] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:27 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:27:11] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:27 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:27:42] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:27 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:27:55] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:28 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:28:46] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:33 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:33:52] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:34 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:34:50] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:35 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:35:16] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:35 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:35:29] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+01-06 21:36 werkzeug     INFO     172.20.0.1 - - [06/Jan/2019 21:36:54] "GET /seven_days_kwyword/ HTTP/1.1" 200 -
+>>>>>>> develop
