@@ -32,7 +32,8 @@
       }
       div{
         vertical-align: center;
-
+        overflow:auto;
+        float:left
       }
       span .t1{
         width: 150px;
@@ -41,25 +42,33 @@
   </head>
   <body>
     <inline>
-      <img src="https://cdn2.ettoday.net/images/2194/d2194378.jpg" alt="被和諧了" width="100" height="100"><br>
+          <span class="icon"><div style="font-size:200px">&nbsp;&nbsp;查核新聞</div><i class="Gamja Flower"></i></span>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <span>說明:歡迎您使用查核功能，您可以透過輸入"[新聞標題或內容]查詢相關的新聞</span>      
     </inline>
     <hr>
-    <form action="??????" method="get/post">
-      貼上新聞:<br>
-      <textarea name="newsmemo" rows="10" cols="30" wrap="on">
-
-
-
-
-      </textarea><br>
-      <input type="submit" name="" value="送出">
-    </form>
+  <form action="." name="post2" method="POST">
+  {% csrf_token %}
+    <p>貼上新聞:</p>
+    <textarea name="user_comment" rows="10" cols="20" wrap="off" style="font-size:80px">
+    </textarea><br>
+    <input type="submit" name="button2" style="width:600px;font-size:75px;" value="送出資料" />
+  </form>
     </div>
   <h2>結果:</h2>
-  <h3 style="display: inline;">與鏈上文章比對相似度:</h3><span><u>{article similar}</u></span><span>%</span>
-  <div style="border-width:3px;border-style:dashed;border-color:#FFAC55;padding:5px;">
-    {similar newslist}
+  <div aligin="center" style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1350px;height:1200px;font-size:100px;">
+            {% if lists %}
+			    <ul>
+                    {% for k in lists %}
+                    <br><a href ='/newspaper/{{k.title_id}}' style="font-size:75px;">{{ k.title }}</a><br><small><small>摘要:</small></small><br><small><small><small><small>{{ k.abstract }}</small></small></small></small><br>
+				    <br>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h1 style="display: inline;font-size:125px;">查無資料!!</h1></p>
+            {% endif %}
+    </ul>
+  </div>
 
 
 

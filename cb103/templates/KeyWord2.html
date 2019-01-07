@@ -86,8 +86,8 @@
   <div id="B">
      <span class="icon"><div style="font-size:150px">&nbsp;&nbsp;Relativekeywords</div><i class="Gamja Flower"></i></span>
     <ul >
-        {% for keyword in keywords %}
-		    <li style="font-size:100px"><strong>{{ keyword.keyword }}</strong></li>
+        {% for k in kw %}
+		    <a href ='/KeyWord3/{{k}}' style="font-size:100px;width:1550px;">{{k}}</a>&nbsp;&nbsp;&nbsp;
             <br>
         {% endfor %}
     </ul>

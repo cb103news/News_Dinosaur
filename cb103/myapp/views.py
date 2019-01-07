@@ -5,6 +5,7 @@ from django.db.models import Avg
 from myapp.models import PollOption,Poll,AnalysisItem,ArticleEmotion,ArticleKeyword,Author,AuthorWrite,Keyword,Label,News,NewsEmotionScore,Origin,Poll,PollOption,Tldr,TldrComment,TldrEmotionScore,TldrKeyword,TldrNews,UserAction,UserBehavior,UserNewsComment,UserNewsReviseAdvice,Users
 import datetime
 import requests
+import json
 def lazybox(request):
     return render(request,"lazybox.html")
    		
@@ -35,8 +36,10 @@ def post2(request):
     mess = request.GET['username'] #取得表單輸入資料
     news = News.objects.filter(articlekeyword__keyword__keyword__icontains=mess)
     keywords = Keyword.objects.filter(keyword__icontains=mess)
-
-    return render(request, "KeyWord2.html", {'mess':mess,'news': news,'keywords':keywords})
+    Endpoint='http://localhost:5001/Keyword/'+ str(mess)
+    response=requests.get(Endpoint)
+    kw = response.json()
+    return render(request, "KeyWord2.html", locals())
 
 def post3(request,username):
     one = News.objects.get(title_id=username)
@@ -83,6 +86,10 @@ def post3(request,username):
 def post4(request,username):
     news = News.objects.filter(articlekeyword__keyword__keyword__icontains=username)
     keywords = Keyword.objects.filter(keyword__icontains=username)
+    keywords = Keyword.objects.filter(keyword__icontains=username)
+    Endpoint='http://localhost:5001/Keyword/'+ str(username)
+    response=requests.get(Endpoint)
+    kw = response.json()
     return render(request, "KeyWord3.html", locals())
 	
 def post5(request,username):
@@ -124,3 +131,20 @@ def post7(request,username):
     title = Poll.objects.get(poll_id=username)
     polls = PollOption.objects.all().order_by('-vote_tally')
     return render(request, "vote2.html", locals())
+
+def post8(request):
+    if request.method == "POST" and 'button2' in request.POST:
+        user_comment = request.POST['user_comment']
+        Endpoint='http://localhost:5001/get_elastic/'
+        word = {
+            'text': user_comment
+        }
+        Header={'Content-Type':'application/json'}
+        Response=requests.post(Endpoint,headers=Header,data=json.dumps(word))            
+        title_list = Response.json()
+        lists = []
+        for i in title_list:
+            i = News.objects.get(title_id=i)
+            lists.append(i)
+    return render(request, "Newcheck.html", locals())
+
