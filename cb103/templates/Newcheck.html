@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
     <style type="text/css">
       body{
-        background: #ccffff;
+        background: #DDDDDD;
       }
 
       .box{
@@ -43,19 +43,20 @@
   <body>
     <inline>
           <span class="icon"><div style="font-size:200px">&nbsp;&nbsp;查核新聞</div><i class="Gamja Flower"></i></span>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <span>說明:歡迎您使用查核功能，您可以透過輸入"[新聞標題或內容]查詢相關的新聞</span>      
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<span class="icon"><div style="font-size:100px;width:1500px">說明:歡迎您使用查核功能，您可以透過輸入"[新聞內容]查詢相關的新聞</div><i class="Gamja Flower"></i></span>
+
     </inline>
     <hr>
   <form action="." name="post2" method="POST">
   {% csrf_token %}
-    <p>貼上新聞:</p>
-    <textarea name="user_comment" rows="10" cols="20" wrap="off" style="font-size:80px">
+    <p style="font-size:100px;width:500px">貼上新聞:</p>
+    <textarea name="user_comment" rows="10" cols="23" wrap="off" style="font-size:100px">
     </textarea><br>
     <input type="submit" name="button2" style="width:600px;font-size:75px;" value="送出資料" />
   </form>
     </div>
-  <h2>結果:</h2>
+  <p style="font-size:100px;width:1500px">結果:</p>
   <div aligin="center" style="border-width:10px;border-style:ridge;border-color:#666666;padding:5px;width:1350px;height:1200px;font-size:100px;">
             {% if lists %}
 			    <ul>
@@ -65,12 +66,13 @@
                     {% endfor %}
                 </ul>
             {% else %}
-                <h1 style="display: inline;font-size:125px;">查無資料!!</h1></p>
+                <h2 style="display: inline;font-size:125px;">查無資料!!</h2></p>
             {% endif %}
     </ul>
   </div>
 
 
-
+<br>&nbsp;
+<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><br><br><br>
     </body>
 </html>

@@ -166,7 +166,7 @@ services:
       - jupyter-tutorial
     ports:
       - "4041:4040"
-    command: ngrok http chatbot_line:5000
+    command: ngrok http --authtoken 5sauQA1E8cbZub44aATzk_4BVdHs791Y4jT2FrzZijE  chatbot_line:5000
     networks:
       - elk
 

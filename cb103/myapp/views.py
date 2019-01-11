@@ -129,7 +129,7 @@ def post6(request):
 
 def post7(request,username):
     title = Poll.objects.get(poll_id=username)
-    polls = PollOption.objects.all().order_by('-vote_tally')
+    polls = PollOption.objects.filter(poll_id=username).order_by('-vote_tally')
     return render(request, "vote2.html", locals())
 
 def post8(request):
